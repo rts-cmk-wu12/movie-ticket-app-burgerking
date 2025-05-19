@@ -1,8 +1,12 @@
+import Layout from "../components/Layout";
+
 const HomePage = () => (
-  <div>
-    <h1>Welcome to the Movie Ticket App</h1>
-    <p>Book your favorite movie tickets easily!</p>
-  </div>
+  <Layout>
+    <div>
+      <h1>Welcome to the Movie Ticket App</h1>
+      <p>Book your favorite movie tickets easily!</p>
+    </div>
+  </Layout>
 );
 
 export default HomePage;
