@@ -1,31 +1,29 @@
 @use "../utils/variables" as *;
-@use "../utils/mixins" as *;
-@use "../base/typography" as *;
 
 .tabs {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    gap: 1rem;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    width: 100%;
-    max-width: 315px;
-    background-color: $tabs-div-color;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 315px;
+  background-color: $secondary-color;
 
-    &__button {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        font-weight: 600;
-        text-transform: capitalize;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
+  &__button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
-    &__button:hover {
-        background-color: $primary-color;
-        color: $color-light;
-    }
+  &__button:hover {
+    background-color: $primary-color;
+    color: $color-light;
+  }
 }
