@@ -1,5 +1,4 @@
-import Icons from "../utils/Icons"; // Capital I
-import "../styles/components/dock.scss";
+import Icons from "../utils/Icons";
 
 export default function Dock() {
   return (
