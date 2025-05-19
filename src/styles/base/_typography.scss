@@ -1,0 +1,12 @@
+@use "../utils/variables" as *;
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+  font-family: $font-primary !important;
+  line-height: 1.6;
+  color: $color-dark;
+  background-color: $color-light;
+}
