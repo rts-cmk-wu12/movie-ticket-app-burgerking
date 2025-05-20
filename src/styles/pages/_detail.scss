@@ -1,0 +1,84 @@
+@use "../utils/variables" as *;
+
+.details {
+    padding: 3rem;
+    &__poster {
+        width: 100%;
+        max-width: 251px;
+        border-radius: 12px;
+        margin: 0 auto;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: bold;
+        color: $color-light;
+        text-transform: capitalize;
+    }
+
+    &__rating-container {
+       display: flex;
+       gap: 0.5rem;
+    }
+
+    &__director {
+        font-size: 14px;
+        color: $tertiary-color;
+        text-transform: capitalize;
+    }
+
+    &__rating {
+        font-size: 14px;
+        color: $tertiary-color;
+        text-transform: capitalize;
+    }
+
+    &__tags {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    &__tag {
+        background-color: $secondary-color;
+        color: $tertiary-color;
+        padding: 0.1rem 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+        font-size: 14px;
+        text-transform: capitalize;
+    }
+
+    &__synopsis {
+        font-size: 14px;
+        color: $tertiary-color;
+        margin: 1rem 0;
+    }
+
+    &__synopsis-title {
+        font-size: 20px;
+        color: $color-light;
+        text-transform: capitalize;
+        margin: 1rem 0;
+    }
+
+    &__synopsis-span {
+        font-size: 14px;
+        color: $button-active;
+        text-transform: capitalize;
+    }
+
+    &__button {
+        background-color: $button-active;
+        color: $color-light;
+        padding: 1rem 1rem;
+        margin: 1rem 0;
+        width: 315px;
+        border-radius: 8px;
+        font-size: 18px;
+        text-transform: capitalize;
+        border: none;
+        cursor: pointer;
+        margin-bottom: 7rem;
+    }
+}
