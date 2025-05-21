@@ -7,23 +7,135 @@
   gap: 1rem;
   padding: 2rem;
   margin-bottom: 2rem;
+  margin-top: 3rem;
   width: 100%;
   max-width: 315px;
+  border-radius: 12px;
   background-color: $secondary-color;
 
   &__button {
     padding: 1rem 2rem;
-    font-size: 1rem;
+    font-size: 14px;
     font-weight: 600;
     text-transform: capitalize;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    color: $tertiary-color;
     transition: background-color 0.3s ease, color 0.3s ease;
+    background: none;
   }
 
   &__button:hover {
-    background-color: $primary-color;
+    background-color: $button-active;
     color: $color-light;
   }
 }
+
+.top-movies {
+ 
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: 14px;
+    color: $tertiary-color;
+    padding: 3rem;
+    text-transform: capitalize;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $color-light;
+    padding: 3rem;
+    text-transform: capitalize;
+  }
+
+  &__list {
+    max-height: 500px;
+    padding: 3rem;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  &__item {
+    img {
+      width: 190px; 
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+  }
+  &__item-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: $color-light;
+  }
+}
+
+.recommended {
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: 14px;
+    color: $tertiary-color;
+    padding: 3rem;
+    text-transform: capitalize;
+  }
+
+  &__item-genre {
+    font-size: 14px;
+    color: $tertiary-color;
+}
+
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $color-light;
+    padding: 3rem;
+    text-transform: capitalize;
+  }
+
+  &__list {
+    max-height: 500px;
+    padding: 3rem;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  &__item {
+    margin-bottom: 6rem;
+    img {
+      width: 120px; 
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+  }
+  &__item-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: $color-light;
+  }
+}
+
+.active_explore {
+  background-color: $button-active;
+  color: $color-light;
+}
+
+a {
+    text-decoration: none;
+    color: $color-light;
+  }
