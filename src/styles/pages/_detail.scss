@@ -2,11 +2,25 @@
 
 .details {
     padding: 3rem;
+    &__poster-container {
+        display: flex;
+        justify-content: center;
+    }
+
     &__poster {
-        width: 100%;
-        max-width: 251px;
+        width: 300px;
         border-radius: 12px;
-        margin: 0 auto;
+    }
+
+    &__images {
+        display: flex;
+        gap: 3rem;
+        overflow-x: auto;
+    }
+
+    &__image {
+        border-radius: 8px;
+        object-fit: cover;
     }
 
     &__title {
@@ -14,6 +28,7 @@
         font-weight: bold;
         color: $color-light;
         text-transform: capitalize;
+        margin-top: 0.5rem;
     }
 
     &__rating-container {
@@ -71,7 +86,7 @@
     &__button {
         background-color: $button-active;
         color: $color-light;
-        padding: 1rem 1rem;
+        padding: 1.5rem 1rem;
         margin: 1rem 0;
         width: 315px;
         border-radius: 8px;

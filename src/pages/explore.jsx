@@ -94,34 +94,33 @@ export default function Explore() {
                                 alt={movie.title}
                             />
                             <h3 className="top-movies__item-title">{movie.title}</h3>
-                            <p className="top-movies__item-rating">⭐ {movie.vote_average} / 10</p>
-                            
+                            <p className="top-movies__item-rating">⭐ {Math.round(movie.vote_average)} / 10</p>
                         </Link>
                     ))}
                 </div>
             </section>
             <section className="recommended">
-    <div className="recommended__header">
-        <h2 className="recommended__title">recommended</h2>
-        <p className="recommended__text">see more</p>
-    </div>
-    <div className="recommended__list">
-        {recommendedMovies.map((movie) => (
-            <Link
-                to={`/details/${movie.id}`}
-                key={movie.id}
-                className="recommended__item"
-            >
-                <img
-                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    alt={movie.title}
-                />
-                <h3 className="recommended__item-title">{movie.title}</h3>
-                <p className="recommended__item-genre">{movie.genre}</p> 
-            </Link>
-        ))}
-    </div>
-</section>
+                <div className="recommended__header">
+                    <h2 className="recommended__title">recommended</h2>
+                    <p className="recommended__text">see more</p>
+                </div>
+                <div className="recommended__list">
+                    {recommendedMovies.map((movie) => (
+                        <Link
+                            to={`/details/${movie.id}`}
+                            key={movie.id}
+                            className="recommended__item"
+                        >
+                            <img
+                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                alt={movie.title}
+                            />
+                            <h3 className="recommended__item-title">{movie.title}</h3>
+                            <p className="recommended__item-genre">{movie.genre}</p>
+                        </Link>
+                    ))}
+                </div>
+            </section>
         </Layout>
     );
 }
