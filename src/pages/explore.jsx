@@ -4,6 +4,7 @@ import "../styles/pages/_explore.scss";
 import Layout from "../components/Layout";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
+import Header from "../components/header";
 
 
 export default function Explore() {
@@ -66,7 +67,7 @@ export default function Explore() {
 
     return (
         <Layout>
-            
+            <Header heading={"explore movie"} search />
             <div className='tabs'>
                 <button
                     className={`tabs__button ${category === "now_playing" ? "active_explore" : ""
