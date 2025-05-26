@@ -105,23 +105,23 @@
 
   &__items {
     padding: 0 3rem;
+    padding-bottom: 2.5rem;
     display: flex;
     flex-wrap: nowrap;
     gap: 3rem;
     overflow-x: auto;
-    padding-bottom: 1rem;
 
     &::-webkit-scrollbar {
-      height: 8px;
+      height: 6px;
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: #555;
-      border-radius: 4px;
+      background-color: $button-active;
+      border-radius: 3px;
     }
 
     &::-webkit-scrollbar-track {
-      background-color: #333;
+      background-color: $secondary-color;
     }
   }
 
@@ -185,12 +185,12 @@
 
 @media screen and (max-width: 768px) {
   .coming-soon__items {
-    // Hide scrollbars in all browsers
-    -ms-overflow-style: none; // IE/Edge
-    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 0;
 
     &::-webkit-scrollbar {
-      display: none; // Chrome, Safari
+      display: none;
     }
 
     .coming-soon__item {

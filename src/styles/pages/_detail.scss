@@ -1,114 +1,123 @@
 @use "../utils/variables" as *;
 
 .details {
-    &__poster-container {
-        display: flex;
-        justify-content: center;
+  &__poster-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__poster {
+    width: 300px;
+    border-radius: 12px;
+  }
+
+  &__images {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 0 3rem;
+    padding-bottom: 2.5rem;
+    &::-webkit-scrollbar {
+      height: 6px;
     }
 
-    &__poster {
-        width: 300px;
-        border-radius: 12px;
+    &::-webkit-scrollbar-thumb {
+      background-color: $button-active;
+      border-radius: 3px;
     }
 
-    &__images {
-        display: flex;
-        gap: 2rem;
-        overflow-x: auto;
-        padding: 3rem;
-        &::-webkit-scrollbar {
-            height: 8px;
-          }
-      
-          &::-webkit-scrollbar-thumb {
-            background-color: #555;
-            border-radius: 4px;
-          }
-      
-          &::-webkit-scrollbar-track {
-            background-color: #333;
-          }
+    &::-webkit-scrollbar-track {
+      background-color: $secondary-color;
     }
+  }
 
-    &__image {
-        border-radius: 0.8rem;
-        object-fit: cover;
-    }
+  &__image {
+    border-radius: 0.8rem;
+    object-fit: cover;
+  }
 
-    &__info {
-        padding: 3rem;
-    }
+  &__info {
+    padding: 3rem;
+  }
 
-    &__title {
-        font-size: 20px;
-        color: $color-light;
-        text-transform: capitalize;
-        margin-bottom: 0.5rem;
-    }
+  &__title {
+    font-size: 20px;
+    color: $color-light;
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+  }
 
-    &__rating-container {
-       display: flex;
-       gap: 0.5rem;
-    }
+  &__rating-container {
+    display: flex;
+    gap: 0.5rem;
+  }
 
-    &__director {
-        font-size: 14px;
-        color: $tertiary-color;
-        margin-bottom: 1.2rem;
-        text-transform: capitalize;
-    }
+  &__director {
+    font-size: 14px;
+    color: $tertiary-color;
+    margin-bottom: 1.2rem;
+    text-transform: capitalize;
+  }
 
-    &__rating {
-        font-size: 14px;
-        color: $tertiary-color;
-        text-transform: capitalize;
-    }
+  &__rating {
+    font-size: 14px;
+    color: $tertiary-color;
+    text-transform: capitalize;
+  }
 
-    &__tags {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        margin-bottom: 2.7rem;
-    }
+  &__tags {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.7rem;
+  }
 
-    &__tag {
-        background-color: $secondary-color;
-        color: $tertiary-color;
-        padding: 0.1rem 1rem;
-        border-radius: 8px;
-        font-size: 14px;
-        text-transform: capitalize;
-    }
+  &__tag {
+    background-color: $secondary-color;
+    color: $tertiary-color;
+    padding: 0.1rem 1rem;
+    border-radius: 8px;
+    font-size: 14px;
+    text-transform: capitalize;
+  }
 
-    &__synopsis {
-        font-size: 14px;
-        color: $tertiary-color;
-        margin-bottom: 1rem;
-    }
+  &__synopsis {
+    font-size: 14px;
+    color: $tertiary-color;
+    margin-bottom: 1rem;
+  }
 
-    &__synopsis-title {
-        font-size: 20px;
-        color: $color-light;
-        text-transform: capitalize;
-        margin-bottom: 1rem;
-    }
+  &__synopsis-title {
+    font-size: 20px;
+    color: $color-light;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+  }
 
-    &__synopsis-span {
-        font-size: 14px;
-        color: $button-active;
-        text-transform: capitalize;
-    }
+  &__synopsis-span {
+    font-size: 14px;
+    color: $button-active;
+    text-transform: capitalize;
+  }
 
-    &__button {
-        background-color: $button-active;
-        color: $color-light;
-        padding: 1.5rem 1rem;
-        margin: 1rem 0;
-        width: 100%;
-        border-radius: 8px;
-        font-size: 18px;
-        text-transform: capitalize;
-        border: none;
-        cursor: pointer;
-    }
+  &__button {
+    background-color: $button-active;
+    color: $color-light;
+    padding: 1.5rem 1rem;
+    margin: 1rem 0;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 18px;
+    text-transform: capitalize;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 762px) {
+  .details__images {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 0;
+  }
 }
