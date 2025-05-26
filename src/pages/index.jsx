@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import Icons from "../utils/Icons";
 
 import "../styles/pages/_home.scss";
-import { fetchFromTMDB } from "../utils/API.js";
+import { fetchFromTMDB, getMovieWithImages } from "../utils/API.js"; // updated
 
 export default function HomePage() {
   const [upcoming, setUpcoming] = useState([]);
@@ -17,7 +17,22 @@ export default function HomePage() {
         page: 1,
       });
 
-      if (data?.results) setUpcoming(data.results);
+      if (data?.results) {
+        // Fetch first backdrop for each movie
+        const moviesWithBackdrops = await Promise.all(
+          data.results.map(async (movie) => {
+            const fullData = await getMovieWithImages(movie.id);
+            const backdrop = fullData?.images?.backdrops?.[0]?.file_path;
+
+            return {
+              ...movie,
+              backdrop: backdrop || movie.backdrop_path, // fallback if none found
+            };
+          })
+        );
+
+        setUpcoming(moviesWithBackdrops);
+      }
     }
 
     loadUpcoming();
@@ -42,7 +57,6 @@ export default function HomePage() {
             aria-label='Search'
             className='header__search-icon'
           />
-
           <input
             type='text'
             placeholder='Search your favourite movie'
@@ -66,7 +80,7 @@ export default function HomePage() {
                   className='coming-soon__item'
                 >
                   <img
-                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    src={`https://image.tmdb.org/t/p/w780${movie.backdrop}`}
                     alt={movie.title}
                   />
                   <h3 className='coming-soon__item-title'>{movie.title}</h3>

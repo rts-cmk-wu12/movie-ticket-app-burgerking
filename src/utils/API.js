@@ -23,3 +23,10 @@ export const fetchFromTMDB = async (endpoint, customParams = {}) => {
     return null;
   }
 };
+
+export const getMovieWithImages = async (movieId) => {
+  return await fetchFromTMDB(`/movie/${movieId}`, {
+    append_to_response: "images",
+    include_image_language: "en,null",
+  });
+};
