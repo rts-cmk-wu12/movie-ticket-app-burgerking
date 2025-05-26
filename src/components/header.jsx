@@ -1,5 +1,5 @@
 import { IoIosArrowBack } from "react-icons/io";
-import { FaBookmark } from "react-icons/fa";
+import { CiBookmarkMinus } from "react-icons/ci";
 import { IoIosSearch } from "react-icons/io";
 import "../styles/components/_header.scss";
 import { useNavigate } from "react-router";
@@ -16,7 +16,7 @@ export default function Header({ heading, bookmark = false, search = false }) {
                     <h1 className="header__title">{heading}</h1>
                 </div>
                 <div className="header__actions">
-                    {bookmark ? <FaBookmark size={24} className="header__icon" /> : ""}
+                    {bookmark ? <CiBookmarkMinus size={24} className="header__icon" /> : ""}
                     {search ? <IoIosSearch size={24} className="header__icon" /> : ""}
                 </div>
             </div>
