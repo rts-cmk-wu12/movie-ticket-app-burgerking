@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import "../styles/pages/_seats.scss";
+import Layout from '../components/Layout';
+import Header from '../components/header';
 
 const SelectSeats = () => {
     const [selectedSeats, setSelectedSeats] = useState([]);
@@ -54,6 +56,8 @@ const SelectSeats = () => {
     );
 
     return (
+        <Layout>
+        <Header heading={"select seats"}/>
         <div className="select-seats">
             <div className="cinema-info">
                 <div className="select-seats__cinema">
@@ -96,6 +100,7 @@ const SelectSeats = () => {
             </div>
             <button className="checkout">Checkout</button>
         </div>
+        </Layout>
     );
 };
 
