@@ -1,0 +1,131 @@
+@use "../utils/variables" as *;
+
+.header {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  &__greeting {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    color: #ccc;
+  }
+
+  &__welcome-text {
+    font-weight: 400;
+    color: #afafaf;
+    font-size: 1.4rem;
+  }
+
+  &__username {
+    font-weight: 500;
+    color: #fff;
+    font-size: 1.8rem;
+  }
+
+  &__avatar {
+    display: flex;
+    align-items: center;
+    img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+    }
+  }
+  &__search {
+    width: 100%;
+    padding: 1.5rem 3.2rem;
+    border-radius: 1.2rem;
+    background-color: #32363d;
+    border: none;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    display: flex;
+    gap: 1.4rem;
+    align-items: center;
+    margin-bottom: 3rem;
+
+    &-icon {
+      color: #696d74;
+    }
+
+    &-input {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 500;
+
+      transition: all 0.3s ease;
+
+      &::placeholder {
+        color: #696d74;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.main-content {
+  padding: 1rem;
+
+  .intro {
+    margin-bottom: 2rem;
+
+    &__title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    &__description {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+  }
+
+  .coming-soon,
+  .cinemas-near {
+    margin-bottom: 2rem;
+  }
+}
+.cinemas-near {
+  &__title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  &__cinema-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    &-item {
+      background-color: #3a3a3c;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      width: calc(33.333% - 1rem);
+      color: #fff;
+
+      &__name {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      &__address {
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+    }
+  }
+}

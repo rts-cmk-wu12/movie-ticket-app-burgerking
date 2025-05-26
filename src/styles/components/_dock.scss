@@ -16,6 +16,7 @@
   padding: 0.75rem 0;
   margin: 0;
   list-style: none;
+  padding: 2.8rem 3.4rem;
 }
 
 .dock-link {
@@ -25,7 +26,6 @@
   color: $button-inactive;
   text-decoration: none;
   transition: color 0.3s ease;
-  padding: 2.8rem 3.4rem;
 
   svg {
     font-size: 1.6rem;
@@ -37,7 +37,12 @@
       transform: scale(1.1);
     }
   }
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 
+  &:focus {
+    outline: none;
+  }
   &.active {
     color: $button-active;
 
