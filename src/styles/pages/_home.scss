@@ -1,6 +1,8 @@
 @use "../utils/variables" as *;
 
 .header {
+  padding: 3rem;
+
   &__top {
     display: flex;
     justify-content: space-between;
@@ -88,6 +90,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+    padding: 0 3rem;
   }
 
   &__title {
@@ -101,9 +104,10 @@
   }
 
   &__items {
+    padding: 0 3rem;
     display: flex;
     flex-wrap: nowrap;
-    gap: 1.2rem;
+    gap: 3rem;
     overflow-x: auto;
     padding-bottom: 1rem;
 
@@ -123,13 +127,13 @@
 
   &__item {
     flex: 0 0 auto;
-    width: 160px;
+    width: 500px;
     text-decoration: none;
     color: inherit;
 
     img {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 1.2rem;
       object-fit: cover;
     }
 
@@ -175,6 +179,22 @@
         font-size: 0.9rem;
         color: #aaa;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .coming-soon__items {
+    // Hide scrollbars in all browsers
+    -ms-overflow-style: none; // IE/Edge
+    scrollbar-width: none; // Firefox
+
+    &::-webkit-scrollbar {
+      display: none; // Chrome, Safari
+    }
+
+    .coming-soon__item {
+      width: 95%;
     }
   }
 }

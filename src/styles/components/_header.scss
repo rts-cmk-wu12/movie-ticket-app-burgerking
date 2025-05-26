@@ -1,40 +1,39 @@
 @use "../utils/variables" as *;
 
 .header {
-    &__container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 2rem;
-        color: $color-light;
-    }
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: $color-light;
+  }
 
-    &__icon-container {
-        display: flex;
-        align-items: center;
-    }
+  &__icon-container {
+    display: flex;
+    align-items: center;
+  }
 
-    &__title-container {
-        flex-grow: 1;
-        text-align: center;
-    }
+  &__title-container {
+    flex-grow: 1;
+    text-align: center;
+  }
 
-    &__title {
-        font-size: 2rem;
-        font-weight: bold;
-        text-transform: capitalize;
-        margin-right: 1rem;
-    }
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-right: 1rem;
+  }
 
-    &__actions {
-        display: flex;
-        gap: 1rem;
-    }
+  &__actions {
+    display: flex;
+    gap: 1rem;
+  }
 
-    &__icon {
-        font-size: 1.5rem;
-        cursor: pointer;
-        color: $color-light;
-    }
+  &__icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: $color-light;
+  }
 }

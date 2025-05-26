@@ -2,134 +2,114 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../styles/pages/_explore.scss";
 import Layout from "../components/Layout";
-import { IoIosArrowBack } from "react-icons/io";
-import { IoSearch } from "react-icons/io5";
 import Header from "../components/header";
-
+import { fetchFromTMDB } from "../utils/API.js";
 
 export default function Explore() {
-    // State til at holde film, anbefalede film og den valgte kategori
-    const [movies, setMovies] = useState([]);
-    const [recommendedMovies, setRecommendedMovies] = useState([]);
-    const [category, setCategory] = useState("now_playing");
+  const [upcoming, setUpcoming] = useState([]);
+  const [nowShowing, setNowShowing] = useState([]);
+  const [recommendedMovies, setRecommendedMovies] = useState([]);
+  const [category, setCategory] = useState("now_playing");
 
-    useEffect(() => {
-        // Funktion til at hente film baseret på den valgte kategori
-        async function fetchMovies() {
-            try {
-                const response = await fetch(
-                    `https://api.themoviedb.org/3/movie/${category}?api_key=d53faa548947914998a2cd2461c8ae72`
-                );
-                const data = await response.json();
-                setMovies(data.results);
+  useEffect(() => {
+    async function loadMovies() {
+      const upcomingData = await fetchFromTMDB("/movie/upcoming", {
+        language: "en-US",
+        page: 1,
+      });
 
-                // Hvis der er film, hentes anbefalinger baseret på den første film
-                if (data.results.length > 0) {
-                    const firstMovieId = data.results[0].id;
-                    fetchRecommendedMovies(firstMovieId);
-                }
-            } catch (error) {
-                console.error("Fejl ved hentning af film:", error);
-            }
-        }
+      const nowShowingData = await fetchFromTMDB("/movie/now_playing", {
+        language: "en-US",
+        page: 1,
+      });
 
-        // Funktion til at hente anbefalede film baseret på en film-id
-        async function fetchRecommendedMovies(movieId) {
-            try {
-                const response = await fetch(
-                    `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=d53faa548947914998a2cd2461c8ae72`
-                );
-                const data = await response.json();
+      const recommendedData = await fetchFromTMDB("/movie/popular", {
+        language: "en-US",
+        page: 1,
+      });
 
-                // Henter detaljer for hver anbefalet film, inkl. genre
-                const detailedMovies = await Promise.all(
-                    data.results.map(async (movie) => {
-                        const movieDetailsResponse = await fetch(
-                            `https://api.themoviedb.org/3/movie/${movie.id}?api_key=d53faa548947914998a2cd2461c8ae72`
-                        );
-                        const movieDetails = await movieDetailsResponse.json();
-                        return {
-                            ...movie,
-                            genre: movieDetails.genres?.[0]?.name || "Ukendt",
-                        };
-                    })
-                );
+      if (upcomingData?.results) setUpcoming(upcomingData.results);
+      if (nowShowingData?.results) setNowShowing(nowShowingData.results);
+      if (recommendedData?.results)
+        setRecommendedMovies(recommendedData.results);
+    }
 
-                setRecommendedMovies(detailedMovies);
-            } catch (error) {
-                console.error("Fejl ved hentning af anbefalede film:", error);
-            }
-        }
+    loadMovies();
+  }, []);
 
-        // Kalder funktionen til at hente film, når kategorien ændres
-        fetchMovies();
-    }, [category]);
+  return (
+    <Layout>
+      <Header heading={"explore movie"} search />
 
-    return (
-        <Layout>
-            <Header heading={"explore movie"} search />
-            <div className='tabs'>
-                <button
-                    className={`tabs__button ${category === "now_playing" ? "active_explore" : ""
-                        }`}
-                    onClick={() => setCategory("now_playing")}
-                >
-                    now showing
-                </button>
-                <button
-                    className={`tabs__button ${category === "upcoming" ? "active_explore" : ""
-                        }`}
-                    onClick={() => setCategory("upcoming")}
-                >
-                    upcoming
-                </button>
-            </div>
-            <section className='top-movies'>
-                <div className='top-movies__header'>
-                    <h2 className='top-movies__title'>top movies</h2>
-                    <p className='top-movies__text'>see more</p>
-                </div>
-                <div className='top-movies__list'>
-                    {movies.map((movie) => (
-                        <Link
-                            to={`/details/${movie.id}`}
-                            key={movie.id}
-                            className='top-movies__item'
-                        >
-                            <img
-                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                                alt={movie.title}
-                            />
-                            <h3 className='top-movies__item-title'>{movie.title}</h3>
-                            <p className='top-movies__item-rating'>
-                                ⭐ {Math.round(movie.vote_average)} / 10
-                            </p>
-                        </Link>
-                    ))}
-                </div>
-            </section>
-            <section className='recommended'>
-                <div className='recommended__header'>
-                    <h2 className='recommended__title'>recommended</h2>
-                    <p className='recommended__text'>see more</p>
-                </div>
-                <div className='recommended__list'>
-                    {recommendedMovies.map((movie) => (
-                        <Link
-                            to={`/details/${movie.id}`}
-                            key={movie.id}
-                            className='recommended__item'
-                        >
-                            <img
-                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                                alt={movie.title}
-                            />
-                            <h3 className='recommended__item-title'>{movie.title}</h3>
-                            <p className='recommended__item-genre'>{movie.genre}</p>
-                        </Link>
-                    ))}
-                </div>
-            </section>
-        </Layout>
-    );
+      <section className='tabs-section'>
+        <div className='tabs-wrapper'>
+          <button
+            className={`tabs-button ${
+              category === "now_playing" ? "active_explore" : ""
+            }`}
+            onClick={() => setCategory("now_playing")}
+          >
+            now showing
+          </button>
+          <button
+            className={`tabs-button ${
+              category === "upcoming" ? "active_explore" : ""
+            }`}
+            onClick={() => setCategory("upcoming")}
+          >
+            upcoming
+          </button>
+        </div>
+      </section>
+
+      <section className='top-movies'>
+        <div className='top-movies__header'>
+          <h2 className='top-movies__title'>
+            {category === "now_playing" ? "now showing" : "upcoming"}
+          </h2>
+          <p className='top-movies__text'>see more</p>
+        </div>
+        <div className='top-movies__list'>
+          {(category === "now_playing" ? nowShowing : upcoming).map((movie) => (
+            <Link
+              to={`/details/${movie.id}`}
+              key={movie.id}
+              className='top-movies__item'
+            >
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+              />
+              <h3 className='top-movies__item-title'>{movie.title}</h3>
+              <p className='top-movies__item-rating'>
+                ⭐ {Math.round(movie.vote_average)} / 10
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className='recommended'>
+        <div className='recommended__header'>
+          <h2 className='recommended__title'>recommended</h2>
+          <p className='recommended__text'>see more</p>
+        </div>
+        <div className='recommended__list'>
+          {recommendedMovies.map((movie) => (
+            <Link
+              to={`/details/${movie.id}`}
+              key={movie.id}
+              className='recommended__item'
+            >
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+              />
+              <h3 className='recommended__item-title'>{movie.title}</h3>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </Layout>
+  );
 }

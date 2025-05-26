@@ -1,142 +1,127 @@
 @use "../utils/variables" as *;
 
-
-
-// styling for the Explore page
-
-
-.tabs {
+.tabs-section {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
-  gap: 1rem;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  margin-top: 3rem;
+  align-items: center;
   width: 100%;
-  max-width: 315px;
-  border-radius: 12px;
-  background-color: $secondary-color;
+  margin-bottom: 3rem;
 
-  &__button {
-    padding: 1rem 2rem;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: capitalize;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: $tertiary-color;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    background: none;
-  }
-
-  &__button:hover {
-    background-color: $button-active;
-    color: $color-light;
-  }
-}
-
-.top-movies {
- 
-  &__header {
+  .tabs-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-  }
+    gap: 1.6rem;
+    padding: 1rem 1.1rem;
+    border-radius: 1.2rem;
+    background-color: $secondary-color;
 
-  &__text {
-    font-size: 14px;
-    color: $tertiary-color;
-    text-transform: capitalize;
-    margin-bottom: 2rem;
-  }
+    .tabs-button {
+      min-width: 132px;
+      padding: 1rem 0.6rem;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: capitalize;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: $tertiary-color;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background: none;
 
-  &__title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: $color-light;
-    text-transform: capitalize;
-    margin-bottom: 2rem;
-  }
-
-  &__list {
-    max-height: 500px;
-    overflow-x: scroll;
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-  }
-
-  &__item {
-    img {
-      width: 190px; 
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
+      &:hover,
+      &.active_explore {
+        background-color: $button-active;
+        color: $color-light;
+      }
     }
   }
-  &__item-title {
-    font-size: 16px;
-    font-weight: bold;
-    color: $color-light;
-  }
-}
-
-.recommended {
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__text {
-    font-size: 14px;
-    color: $tertiary-color;
-    text-transform: capitalize;
-  }
-
-  &__item-genre {
-    font-size: 14px;
-    color: $tertiary-color;
-}
-
-  &__title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: $color-light;
-    text-transform: capitalize;
-  }
-
-  &__list {
-    max-height: 500px;
-    overflow-x: scroll;
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-  }
-
-  &__item {
-    margin-bottom: 6rem;
-    img {
-      width: 120px; 
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-    }
-  }
-  &__item-title {
-    font-size: 16px;
-    font-weight: bold;
-    color: $color-light;
-  }
-}
-
-.active_explore {
-  background-color: $button-active;
-  color: $color-light;
 }
 
 a {
-    text-decoration: none;
-    color: $color-light;
+  text-decoration: none;
+  color: $color-light;
+}
+
+.top-movies,
+.recommended {
+  margin-bottom: 3rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    margin-bottom: 3rem;
   }
+
+  &__text {
+    font-size: 14px;
+    color: $tertiary-color;
+    text-transform: capitalize;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $color-light;
+    text-transform: capitalize;
+  }
+
+  &__list {
+    max-height: 500px;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 0 3rem;
+
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #555;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #333;
+    }
+  }
+
+  &__item {
+    img {
+      width: 220px; // Increased size for now showing
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    &-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: $color-light;
+    }
+
+    &-genre {
+      font-size: 14px;
+      color: $tertiary-color;
+    }
+  }
+}
+
+.recommended__item img {
+  width: 140px; // Smaller posters for recommended
+}
+
+@media screen and (max-width: 768px) {
+  .top-movies__list,
+  .recommended__list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
