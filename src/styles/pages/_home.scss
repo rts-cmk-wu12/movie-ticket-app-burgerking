@@ -129,3 +129,47 @@
     }
   }
 }
+
+.coming-soon {
+  padding: 2rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.2rem;
+  }
+
+  &__item {
+    text-decoration: none;
+    color: inherit;
+
+    img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    &-title {
+      margin-top: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    &-date {
+      font-size: 0.9rem;
+      color: #777;
+    }
+  }
+}
