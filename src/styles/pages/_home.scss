@@ -76,28 +76,77 @@
 }
 
 .main-content {
-  padding: 1rem;
-
-  .intro {
-    margin-bottom: 2rem;
-
-    &__title {
-      font-size: 1.25rem;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    &__description {
-      color: #aaa;
-      font-size: 0.95rem;
-    }
-  }
-
   .coming-soon,
   .cinemas-near {
     margin-bottom: 2rem;
   }
 }
+
+.coming-soon {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  &__list {
+    overflow-x: auto;
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1.2rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #555;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #333;
+    }
+  }
+
+  &__item {
+    flex: 0 0 auto;
+    width: 160px;
+    text-decoration: none;
+    color: inherit;
+
+    img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    &-title {
+      margin-top: 0.5rem;
+      font-weight: 600;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    &-date {
+      font-size: 1.4rem;
+      color: #afafaf;
+    }
+  }
+}
+
 .cinemas-near {
   &__title {
     font-size: 1.25rem;
@@ -126,50 +175,6 @@
         font-size: 0.9rem;
         color: #aaa;
       }
-    }
-  }
-}
-
-.coming-soon {
-  padding: 2rem;
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-
-  &__title {
-    font-size: 1.8rem;
-    font-weight: bold;
-  }
-
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1.2rem;
-  }
-
-  &__item {
-    text-decoration: none;
-    color: inherit;
-
-    img {
-      width: 100%;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-
-    &-title {
-      margin-top: 0.5rem;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    &-date {
-      font-size: 0.9rem;
-      color: #777;
     }
   }
 }

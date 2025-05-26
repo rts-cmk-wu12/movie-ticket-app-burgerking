@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
 import Layout from "../components/Layout";
 import Icons from "../utils/Icons";
-import "../styles/pages/_home.scss";
 
-const HomePage = () => {
-  const [upcomingMovies, setUpcomingMovies] = useState([]);
+import "../styles/pages/_home.scss";
+import { fetchFromTMDB } from "../utils/API.js";
+
+export default function HomePage() {
+  const [upcoming, setUpcoming] = useState([]);
 
   useEffect(() => {
-    async function fetchUpcomingMovies() {
-      try {
-        const response = await fetch(
-          `https://api.themoviedb.org/3/movie/upcoming?api_key=d53faa548947914998a2cd2461c8ae72`
-        );
-        const data = await response.json();
-        setUpcomingMovies(data.results);
-      } catch (error) {
-        console.error("Error fetching upcoming movies:", error);
-      }
+    async function loadUpcoming() {
+      const data = await fetchFromTMDB("/movie/upcoming", {
+        language: "en-US",
+        page: 1,
+      });
+
+      if (data?.results) setUpcoming(data.results);
     }
 
-    fetchUpcomingMovies();
+    loadUpcoming();
   }, []);
 
   return (
@@ -54,24 +54,26 @@ const HomePage = () => {
 
       <main className='main-content'>
         <section className='coming-soon'>
-          <div className='coming-soon__header'>
+          <header className='coming-soon__header'>
             <h2 className='coming-soon__title'>Coming Soon</h2>
-          </div>
+          </header>
           <div className='coming-soon__list'>
-            {upcomingMovies.map((movie) => (
-              <Link
-                to={`/details/${movie.id}`}
-                key={movie.id}
-                className='coming-soon__item'
-              >
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title}
-                />
-                <h3 className='coming-soon__item-title'>{movie.title}</h3>
-                <p className='coming-soon__item-date'>{movie.release_date}</p>
-              </Link>
-            ))}
+            <div className='coming-soon__items'>
+              {upcoming.map((movie) => (
+                <Link
+                  to={`/details/${movie.id}`}
+                  key={movie.id}
+                  className='coming-soon__item'
+                >
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                  <h3 className='coming-soon__item-title'>{movie.title}</h3>
+                  <p className='coming-soon__item-date'>{movie.release_date}</p>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -81,6 +83,4 @@ const HomePage = () => {
       </main>
     </Layout>
   );
-};
-
-export default HomePage;
+}
