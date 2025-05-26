@@ -1,7 +1,6 @@
 @use "../utils/variables" as *;
 
 .details {
-    padding: 3rem;
     &__poster-container {
         display: flex;
         justify-content: center;
@@ -14,21 +13,37 @@
 
     &__images {
         display: flex;
-        gap: 3rem;
+        gap: 2rem;
         overflow-x: auto;
+        padding: 3rem;
+        &::-webkit-scrollbar {
+            height: 8px;
+          }
+      
+          &::-webkit-scrollbar-thumb {
+            background-color: #555;
+            border-radius: 4px;
+          }
+      
+          &::-webkit-scrollbar-track {
+            background-color: #333;
+          }
     }
 
     &__image {
-        border-radius: 8px;
+        border-radius: 0.8rem;
         object-fit: cover;
+    }
+
+    &__info {
+        padding: 3rem;
     }
 
     &__title {
         font-size: 20px;
-        font-weight: bold;
         color: $color-light;
         text-transform: capitalize;
-        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
     }
 
     &__rating-container {
@@ -39,6 +54,7 @@
     &__director {
         font-size: 14px;
         color: $tertiary-color;
+        margin-bottom: 1.2rem;
         text-transform: capitalize;
     }
 
@@ -52,6 +68,7 @@
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
+        margin-bottom: 2.7rem;
     }
 
     &__tag {
@@ -59,7 +76,6 @@
         color: $tertiary-color;
         padding: 0.1rem 1rem;
         border-radius: 8px;
-        margin: 1rem 0;
         font-size: 14px;
         text-transform: capitalize;
     }
@@ -67,14 +83,14 @@
     &__synopsis {
         font-size: 14px;
         color: $tertiary-color;
-        margin: 1rem 0;
+        margin-bottom: 1rem;
     }
 
     &__synopsis-title {
         font-size: 20px;
         color: $color-light;
         text-transform: capitalize;
-        margin: 1rem 0;
+        margin-bottom: 1rem;
     }
 
     &__synopsis-span {
@@ -94,6 +110,5 @@
         text-transform: capitalize;
         border: none;
         cursor: pointer;
-        margin-bottom: 7rem;
     }
 }
