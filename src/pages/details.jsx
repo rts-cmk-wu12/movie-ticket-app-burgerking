@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import "../styles/pages/_detail.scss";
 
 export default function Details() {
