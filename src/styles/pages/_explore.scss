@@ -48,21 +48,20 @@
   &__text {
     font-size: 14px;
     color: $tertiary-color;
-    padding: 3rem;
     text-transform: capitalize;
+    margin-bottom: 2rem;
   }
 
   &__title {
     font-size: 2rem;
     font-weight: bold;
     color: $color-light;
-    padding: 3rem;
     text-transform: capitalize;
+    margin-bottom: 2rem;
   }
 
   &__list {
     max-height: 500px;
-    padding: 3rem;
     overflow-x: scroll;
     display: flex;
     flex-direction: row;
@@ -94,7 +93,6 @@
   &__text {
     font-size: 14px;
     color: $tertiary-color;
-    padding: 3rem;
     text-transform: capitalize;
   }
 
@@ -107,13 +105,11 @@
     font-size: 2rem;
     font-weight: bold;
     color: $color-light;
-    padding: 3rem;
     text-transform: capitalize;
   }
 
   &__list {
     max-height: 500px;
-    padding: 3rem;
     overflow-x: scroll;
     display: flex;
     flex-direction: row;
