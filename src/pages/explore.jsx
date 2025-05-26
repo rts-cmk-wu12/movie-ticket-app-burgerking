@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Layout from "../components/layout";
 import { useEffect, useState } from "react";
 import "../styles/pages/_explore.scss";
+import Layout from "../components/Layout";
 
 export default function Explore() {
   // State til at holde film, anbefalede film og den valgte kategori
