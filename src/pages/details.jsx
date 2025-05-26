@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import "../styles/pages/_detail.scss";
+import Header from "../components/header";
 
 export default function Details() {
     const { movieId } = useParams();
@@ -51,6 +52,7 @@ export default function Details() {
 
     return (
         <Layout>
+            <Header heading={"details movie"} bookmark />
             <section className="details">
                 <div className="details__container">
                     <div className="details__images">
