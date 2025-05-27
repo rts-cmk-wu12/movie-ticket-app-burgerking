@@ -39,7 +39,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <Layout>
+    <>
       <header className='header'>
         <div className='header__top'>
           <div className='header__greeting'>
@@ -65,8 +65,7 @@ export default function HomePage() {
           />
         </div>
       </header>
-
-      <main className='main-content'>
+      <Layout>
         <section className='coming-soon'>
           <header className='coming-soon__header'>
             <h2 className='coming-soon__title'>Coming Soon</h2>
@@ -94,7 +93,7 @@ export default function HomePage() {
         <section className='cinemas-near'>
           {/* Hardcode cinema data or fetch from external source later */}
         </section>
-      </main>
-    </Layout>
+      </Layout>
+    </>
   );
 }
