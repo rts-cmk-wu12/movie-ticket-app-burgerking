@@ -60,41 +60,75 @@ const SelectSeats = () => {
 
   return (
     <>
+      {/* Header-komponent med overskrift */}
       <Header heading={"select seats"} />
 
       <Layout>
         <div className='select-seats'>
           <div className='cinema-info'>
+            {/* Dropdown til valg af biograf */}
             <div className='select-seats__cinema'>
               <h2 className='select-seats__title'>cinema</h2>
               <select className='select-seats__cinema-select'>
                 <option>Empire XXI Yogyakarta</option>
+                <option>Viva Cinema</option>
+                <option>EbonyLife Cinema</option>
               </select>
             </div>
             <div className='datetime'>
               <div>
+                {/* Dropdown til valg af dato */}
                 <h3 className='select-seats__title'>date</h3>
-                <input
-                  type='date'
+                <select
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                />
+                  className='select-seats__date-select'
+                >
+                  {Array.from({ length: 30 }, (_, i) => {
+                    const futureDate = new Date();
+                    futureDate.setDate(futureDate.getDate() + i);
+                    const formattedDate = futureDate.toISOString().split("T")[0];
+                    return (
+                      <option key={i} value={formattedDate}>
+                        {formattedDate}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
               <div>
+                {/* Dropdown til valg af tid */}
                 <h3 className='select-seats__title'>time</h3>
-                <input
-                  type='time'
+                <select
                   value={time}
                   onChange={(e) => setTime(e.target.value)}
-                />
+                  className='select-seats__time-select'
+                >
+                  {Array.from({ length: 24 }, (_, i) => {
+                    const now = new Date();
+                    const futureTime = new Date();
+                    futureTime.setHours(now.getHours() + i, 0, 0, 0);
+                    const formattedTime = futureTime
+                      .toTimeString()
+                      .split(" ")[0]
+                      .slice(0, 5);
+                    return (
+                      <option key={i} value={formattedTime}>
+                        {formattedTime}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
             </div>
           </div>
+          {/* Biografskærm */}
           <div className='screen'>
-            {" "}
             <img src='/Screen.svg' alt='Cinema screen' />
           </div>
+          {/* Sædeoversigt */}
           <div className='seats-container'>{renderSeats()}</div>
+          {/* Forklaring af sædefarver */}
           <div className='legend'>
             <div className='legend-item'>
               <span className='seat selected' /> Selected
@@ -106,6 +140,7 @@ const SelectSeats = () => {
               <span className='seat available' /> Available
             </div>
           </div>
+          {/* Link til checkout */}
           <NavLink to='/checkout' className='checkout'>
             Checkout
           </NavLink>

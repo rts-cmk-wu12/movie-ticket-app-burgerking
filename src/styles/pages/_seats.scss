@@ -23,32 +23,46 @@
     gap: 1rem;
     margin-bottom: 3rem;
 
-    input[type="date"],
-    input[type="time"] {
-      background-color: $quaternary-color;
-      border: 1px solid $quinary-color;
-      border-radius: 10px;
-      color: white;
-      padding: 1rem;
-      width: 129px;
-      font-size: 1rem;
-      outline: none;
-    }
 
     .datetime {
       display: flex;
-      gap: 1rem;
+      gap: 3.3rem;
+    }
+  }
+
+  &__date-select, &__time-select {
+    border-radius: 10px;
+    background-color: $primary-color;
+    border: 1px solid $quinary-color;
+    color: $quinary-color;
+    outline: none;
+    width: 141px;
+    height: 48px;
+    padding: 1rem;
+    &::-webkit-scrollbar {
+      height: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $button-active;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $secondary-color;
     }
   }
 
   &__cinema-select {
     border-radius: 10px;
-    padding: 1rem 5.5rem;
-    margin: 0.5rem 0;
-    background-color: $quaternary-color;
+    width: 315px;
+    height: 48px;
+    margin-bottom: 4.2rem;
+    background-color: $primary-color;
     border: 1px solid $quinary-color;
     color: $quinary-color;
     outline: none;
+    padding: 1rem;
   }
 
   .screen {
@@ -117,9 +131,12 @@
     color: white;
     border: none;
     border-radius: 12px;
-    padding: 1.5rem 9.5rem;
+    width: 315px;
+    height: 48px;
     font-size: 18px;
     cursor: pointer;
+    text-align: center;
+    padding: 1rem 1rem;
   }
 }
 

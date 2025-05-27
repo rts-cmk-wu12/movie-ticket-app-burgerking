@@ -88,10 +88,11 @@
   }
 
   &__synopsis-title {
-    font-size: 20px;
+    font-size: 2rem;
     color: $color-light;
     text-transform: capitalize;
     margin-bottom: 1rem;
+    font-weight: medium;
   }
 
   &__synopsis-span {
@@ -107,10 +108,11 @@
     margin: 1rem 0;
     width: 100%;
     border-radius: 8px;
-    font-size: 18px;
+    font-size: 1.8rem;
     text-transform: capitalize;
     border: none;
     cursor: pointer;
+    font-weight: medium;
   }
 }
 
