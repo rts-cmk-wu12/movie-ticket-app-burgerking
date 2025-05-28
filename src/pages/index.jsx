@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import Icons from "../utils/Icons";
 
 import "../styles/pages/_home.scss";

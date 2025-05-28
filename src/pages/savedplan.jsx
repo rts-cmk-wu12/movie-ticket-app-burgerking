@@ -1,5 +1,5 @@
 import Header from "../components/header";
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import { useEffect, useState } from "react";
 import "../styles/pages/_savedplan.scss";
 
