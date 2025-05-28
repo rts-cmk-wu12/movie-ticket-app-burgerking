@@ -51,8 +51,9 @@ export default function Details() {
     const formattedRuntime = `${Math.floor(runtime / 60)}h ${runtime % 60}m`;
 
     return (
+        <>
+        <Header heading={"details movie"} bookmark movieDetails={movieDetails} />
         <Layout>
-           <Header heading={"details movie"} bookmark movieDetails={movieDetails} />
             <section className="details">
                 <div className="details__container">
                     <div className="details__images">
@@ -95,5 +96,6 @@ export default function Details() {
                 </div>
             </section>
         </Layout>
+        </>
     );
 }
