@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../styles/pages/_explore.scss";
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import Header from "../components/header";
 import { fetchFromTMDB } from "../utils/API.js";
 

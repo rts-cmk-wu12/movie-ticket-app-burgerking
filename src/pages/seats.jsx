@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/pages/_seats.scss";
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import Header from "../components/header";
 import { NavLink } from "react-router-dom";
 
