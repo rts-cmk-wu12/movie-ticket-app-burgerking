@@ -4,7 +4,7 @@ import Dock from "./dock";
 export default function Layout({ children }) {
   const location = useLocation();
 
-  const dockPaths = ["/", "/explore", "/details", "/savedplan", ];
+  const dockPaths = ["/", "/explore", "/details", "/savedplan"];
   const shouldShowDock = dockPaths.includes(location.pathname);
 
   return (
