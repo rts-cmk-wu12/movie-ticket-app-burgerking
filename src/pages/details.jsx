@@ -1,8 +1,8 @@
 import { NavLink, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Layout from "../components/Layout";
 import "../styles/pages/_detail.scss";
 import Header from "../components/header";
+import Layout from "../components/Layout";
 
 export default function Details() {
     const { movieId } = useParams();
