@@ -7,6 +7,7 @@ export default function SavedPlan() {
     const [savedPlans, setSavedPlans] = useState([]);
     const [date, setDate] = useState([]);
     const [time, setTime] = useState([]);
+    const [people, setPeople] = useState(1); // State for number of people
 
     useEffect(() => {
         const plans = JSON.parse(localStorage.getItem("savedPlans")) || [];
@@ -38,8 +39,7 @@ export default function SavedPlan() {
                                         <option>EbonyLife Cinema</option>
                                     </select>
                                     <div className="saved-plan__datetime">
-                                        <div>
-                                            {/* Dropdown til valg af dato */}
+                                        <div className="select-seats__datetime">
                                             <h3 className="select-seats__title">date</h3>
                                             <select
                                                 value={date}
@@ -58,8 +58,7 @@ export default function SavedPlan() {
                                                 })}
                                             </select>
                                         </div>
-                                        <div>
-                                            {/* Dropdown til valg af tid */}
+                                        <div className="select-seats__datetime">
                                             <h3 className="select-seats__title">time</h3>
                                             <select
                                                 value={time}
@@ -83,12 +82,26 @@ export default function SavedPlan() {
                                             </select>
                                         </div>
                                     </div>
-                                    </div>
-                                    ))
-                                    ) : (
-                                    <p className="saved-plan__empty">No saved plans yet.</p>
-                        )}
+                                    <div>
+                                            <h3 className="select-seats__title">people</h3>
+                                            <select
+                                                value={people}
+                                                onChange={(e) => setPeople(e.target.value)}
+                                                className="select-seats__people-select"
+                                            >
+                                                {Array.from({ length: 10 }, (_, i) => (
+                                                    <option key={i + 1} value={i + 1}>
+                                                        {i + 1} {i + 1 === 1 ? "person" : "people"}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
                                 </div>
+                            ))
+                        ) : (
+                            <p className="saved-plan__empty">No saved plans yet.</p>
+                        )}
+                    </div>
                 </section>
             </Layout>
         </>
