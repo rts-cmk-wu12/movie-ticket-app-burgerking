@@ -1,4 +1,3 @@
-// components/PaymentForm.jsx
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -9,6 +8,7 @@ export default function PaymentForm() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm({ mode: "onTouched" });
 
@@ -25,6 +25,17 @@ export default function PaymentForm() {
     if (charCode < 48 || charCode > 57) {
       e.preventDefault();
     }
+  };
+
+  const handleCardInput = (e) => {
+    const input = e.target.value.replace(/\D/g, "");
+    const mainPart = input
+      .slice(0, 12)
+      .replace(/(.{4})/g, "$1 ")
+      .trim();
+    const lastChunk = input.slice(12);
+    const formatted = lastChunk ? `${mainPart} ${lastChunk}` : mainPart;
+    setValue("cardnumber", formatted);
   };
 
   return (
@@ -99,11 +110,13 @@ export default function PaymentForm() {
             id='cardnumber'
             placeholder='**** **** **** 51446'
             inputMode='numeric'
+            maxLength={16}
             onKeyPress={restrictToNumbers}
+            onChange={handleCardInput}
             {...register("cardnumber", {
               required: "Card number is required",
               pattern: {
-                value: /^[0-9]+$/,
+                value: /^[0-9\s]+$/,
                 message: "Card number must contain digits only",
               },
             })}
@@ -122,7 +135,6 @@ export default function PaymentForm() {
             >
               <option value=''>Select a date</option>
               <option>02 Nov 2021</option>
-              {/* Add real dates here */}
             </select>
             {errors.expiry && (
               <small className='error'>{errors.expiry.message}</small>
