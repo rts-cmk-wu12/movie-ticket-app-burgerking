@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../styles/pages/_explore.scss";
 import Layout from "../components/Layout";
@@ -73,7 +73,7 @@ export default function Explore() {
           <div className='top-movies__list'>
             {(category === "now_playing" ? nowShowing : upcoming).map(
               (movie) => (
-                <Link
+                <NavLink
                   to={`/details/${movie.id}`}
                   key={movie.id}
                   className='top-movies__item'
@@ -86,7 +86,7 @@ export default function Explore() {
                   <p className='top-movies__item-rating'>
                     ⭐ {Math.round(movie.vote_average)} / 10
                   </p>
-                </Link>
+                </NavLink>
               )
             )}
           </div>
@@ -99,7 +99,7 @@ export default function Explore() {
           </div>
           <div className='recommended__list'>
             {recommendedMovies.map((movie) => (
-              <Link
+              <NavLink
                 to={`/details/${movie.id}`}
                 key={movie.id}
                 className='recommended__item'
@@ -109,7 +109,7 @@ export default function Explore() {
                   alt={movie.title}
                 />
                 <h3 className='recommended__item-title'>{movie.title}</h3>
-              </Link>
+              </NavLink>
             ))}
           </div>
         </section>

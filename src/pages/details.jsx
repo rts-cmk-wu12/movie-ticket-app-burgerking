@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import "../styles/pages/_detail.scss";
@@ -52,7 +52,7 @@ export default function Details() {
 
     return (
         <Layout>
-            <Header heading={"details movie"} bookmark />
+           <Header heading={"details movie"} bookmark movieDetails={movieDetails} />
             <section className="details">
                 <div className="details__container">
                     <div className="details__images">
@@ -88,9 +88,9 @@ export default function Details() {
                         </div>
                         <h3 className="details__synopsis-title">Synopsis</h3>
                         <p className="details__synopsis">{overview} <span className="details__synopsis-span">Read more</span></p>
-                        <Link to={`/seats/${movieId}`}>
+                        <NavLink to={`/seats/${movieId}`}>
                             <button className="details__button">Book Ticket</button>
-                        </Link>
+                        </NavLink>
                     </div>
                 </div>
             </section>
