@@ -64,25 +64,25 @@ const SelectSeats = () => {
       <Header heading={"select seats"} />
 
       <Layout>
-        <div className='select-seats'>
-          <div className='cinema-info'>
+        <div className="select-seats">
+          <div className="cinema-info">
             {/* Dropdown til valg af biograf */}
-            <div className='select-seats__cinema'>
-              <h2 className='select-seats__title'>cinema</h2>
-              <select className='select-seats__cinema-select'>
+            <div className="select-seats__cinema">
+              <h2 className="select-seats__title">cinema</h2>
+              <select className="select-seats__cinema-select">
                 <option>Empire XXI Yogyakarta</option>
                 <option>Viva Cinema</option>
                 <option>EbonyLife Cinema</option>
               </select>
             </div>
-            <div className='datetime'>
+            <div className="datetime">
               <div>
                 {/* Dropdown til valg af dato */}
-                <h3 className='select-seats__title'>date</h3>
+                <h3 className="select-seats__title">date</h3>
                 <select
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  className='select-seats__date-select'
+                  className="select-seats__date-select"
                 >
                   {Array.from({ length: 30 }, (_, i) => {
                     const futureDate = new Date();
@@ -98,11 +98,11 @@ const SelectSeats = () => {
               </div>
               <div>
                 {/* Dropdown til valg af tid */}
-                <h3 className='select-seats__title'>time</h3>
+                <h3 className="select-seats__title">time</h3>
                 <select
                   value={time}
                   onChange={(e) => setTime(e.target.value)}
-                  className='select-seats__time-select'
+                  className="select-seats__time-select"
                 >
                   {Array.from({ length: 24 }, (_, i) => {
                     const now = new Date();
@@ -123,25 +123,25 @@ const SelectSeats = () => {
             </div>
           </div>
           {/* Biografskærm */}
-          <div className='screen'>
-            <img src='/Screen.svg' alt='Cinema screen' />
+          <div className="screen">
+            <img src="/Screen.svg" alt="Cinema screen" />
           </div>
           {/* Sædeoversigt */}
-          <div className='seats-container'>{renderSeats()}</div>
+          <div className="seats-container">{renderSeats()}</div>
           {/* Forklaring af sædefarver */}
-          <div className='legend'>
-            <div className='legend-item'>
-              <span className='seat selected' /> Selected
+          <div className="legend">
+            <div className="legend-item">
+              <span className="seat selected" /> Selected
             </div>
-            <div className='legend-item'>
-              <span className='seat reserved' /> Reserved
+            <div className="legend-item">
+              <span className="seat reserved" /> Reserved
             </div>
-            <div className='legend-item'>
-              <span className='seat available' /> Available
+            <div className="legend-item">
+              <span className="seat available" /> Available
             </div>
           </div>
           {/* Link til checkout */}
-          <NavLink to='/checkout' className='checkout'>
+          <NavLink to="/checkout" className="checkout">
             Checkout
           </NavLink>
         </div>

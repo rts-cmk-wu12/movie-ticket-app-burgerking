@@ -1,0 +1,65 @@
+@use "../utils/variables" as *;
+
+.saved-plan {
+
+    &__empty {
+        text-align: center;
+        color: $color-light;
+        font-size: 2rem;
+    }
+
+    img {
+       width: 76px;
+       height: 76px;
+    }
+
+    &__movie-wrapper {
+        padding: 3rem;
+    }
+
+    &__movie-number {
+        font-size: 2rem;
+        color: $color-light;
+        margin-bottom: 1.8rem;
+    }
+    &__movie-details {
+        display: flex;
+        gap: 1.2rem;
+        margin-bottom: 1.8rem;
+    }
+    
+    &__movie-genre {
+        font-size: 1.2rem;
+        color: $button-active;
+        text-transform: capitalize;
+    }
+
+    &__movie-title {
+        font-size: 1.6rem;
+        color: $color-light;
+        text-transform: capitalize;
+    }
+
+    &__movie-runtime {
+        font-size: 1.2rem;
+        color: $tertiary-color;
+        text-transform: capitalize;
+    }
+
+    &__datetime {
+        display: flex;
+        gap: 3rem;
+
+        &__date {
+            font-size: 1.2rem;
+            color: $color-light;
+            text-transform: capitalize;
+        }
+
+        &__time {
+            font-size: 1.2rem;
+            color: $color-light;
+            text-transform: capitalize;
+        }
+    }
+}

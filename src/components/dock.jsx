@@ -27,7 +27,7 @@ export default function Dock() {
         </li>
         <li>
           <NavLink
-            to='/bookmarks'
+            to='/savedplan'
             className={({ isActive }) =>
               `dock-link${isActive ? " active" : ""}`
             }
