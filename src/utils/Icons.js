@@ -2,6 +2,7 @@ import { FaHome, FaCompass, FaBookmark, FaUser } from "react-icons/fa";
 import { HiSearch } from "react-icons/hi";
 import { RiShieldCheckFill } from "react-icons/ri";
 import { FaStar } from "react-icons/fa6";
+import { FaFileDownload } from "react-icons/fa";
 
 const Icons = {
   home: FaHome,
@@ -11,6 +12,7 @@ const Icons = {
   search: HiSearch,
   shield: RiShieldCheckFill,
   star: FaStar,
+  download: FaFileDownload,
 };
 
 export default Icons;
