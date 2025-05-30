@@ -1,0 +1,237 @@
+@use "../utils/variables" as *;
+
+.receipt {
+  padding: 3rem;
+
+  &__header {
+    margin-bottom: 3rem;
+    text-align: left;
+
+    .receipt__title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: $color-light;
+      margin-bottom: 0.5rem;
+    }
+
+    .receipt__text {
+      font-size: 1.4rem;
+      color: $tertiary-color;
+      max-width: 400px;
+    }
+  }
+
+  &__card {
+    background-color: $color-light;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    color: $color-dark;
+    outline: 5px #d8d8d8;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 3.5rem;
+    width: 100%;
+    font-size: 1.6rem;
+    font-weight: 600;
+
+    .receipt__eticket {
+      color: red;
+      font-weight: 6 00;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 3.5rem;
+  }
+
+  &__label {
+    font-size: 1.4rem;
+    color: $tertiary-color;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+
+  &__value {
+    font-size: 1.4rem;
+    color: $color-dark;
+    font-weight: 600;
+  }
+
+  &__barcode {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 2.5px dashed $primary-color;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    .dot1,
+    .dot2 {
+      width: 5rem;
+      height: 5rem;
+      background-color: $primary-color;
+      position: absolute;
+      top: -2.5rem;
+      z-index: 2;
+      border-radius: 50%;
+    }
+
+    .dot1 {
+      left: -5.5rem;
+    }
+
+    .dot2 {
+      right: -5.5rem;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+    }
+  }
+
+  &__download {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    gap: 2rem;
+    padding: 1.5rem 2.9rem;
+    background-color: $button-active;
+    color: #fff;
+    border: none;
+    border-radius: 1.2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+
+    &:hover {
+      background-color: lighten($button-active, 10%);
+    }
+  }
+}
+.modal {
+  background-color: rgba(24, 24, 24, 0.5);
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  z-index: 999;
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+
+    .modal__content {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    .modal__content {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &__content {
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $button-active;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top-left-radius: 6rem;
+    border-top-right-radius: 6rem;
+    padding: 3rem;
+  }
+
+  &__icon {
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%) translateX(-50%);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    background-color: $button-active;
+    outline: 3px solid white;
+    padding: 2.5rem;
+    z-index: 1;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6rem;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    max-width: 323px;
+    line-height: 3.25rem;
+    color: #fff;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    font-weight: 200;
+    color: #e8e8e8;
+    margin-bottom: 3.4rem;
+    max-width: 302px;
+  }
+
+  &__cta {
+    display: inline-block;
+    background-color: #1b1e25;
+    color: #fff;
+    font-weight: 400;
+    padding: 1.6rem 4.2rem;
+    border-radius: 1.2rem;
+    text-decoration: none;
+    transition: background 0.3s;
+    font-size: 1.8rem;
+    width: 100%;
+    text-align: center;
+
+    &:hover {
+      background-color: #333;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+}

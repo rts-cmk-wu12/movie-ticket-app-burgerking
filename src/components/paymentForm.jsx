@@ -54,7 +54,7 @@ export default function PaymentForm() {
               estates and grounds. When she was a teenager. Read More
             </p>
           </div>
-          <NavLink to='/reciept' className='modal__cta'>
+          <NavLink to='/receipt' className='modal__cta'>
             See E-Ticket
           </NavLink>
         </div>
