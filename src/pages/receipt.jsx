@@ -1,4 +1,4 @@
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import Icons from "../utils/Icons";
 import Header from "../components/header";
 import "../styles/pages/_reciept.scss";
