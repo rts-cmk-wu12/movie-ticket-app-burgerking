@@ -1,0 +1,128 @@
+@use "../utils/variables" as *;
+
+.tabs-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 3rem;
+
+  .tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 1rem 1.1rem;
+    border-radius: 1.2rem;
+    background-color: $secondary-color;
+
+    .tabs-button {
+      min-width: 132px;
+      padding: 1rem 0.6rem;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: capitalize;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: $tertiary-color;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background: none;
+
+      &:hover,
+      &.active_explore {
+        background-color: $button-active;
+        color: $color-light;
+      }
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $color-light;
+}
+
+.top-movies,
+.recommended {
+  margin-bottom: 3rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    margin-bottom: 3rem;
+  }
+
+  &__text {
+    font-size: 14px;
+    color: $tertiary-color;
+    text-transform: capitalize;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $color-light;
+    text-transform: capitalize;
+  }
+
+  &__list {
+    max-height: 500px;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 0 3rem;
+    padding-bottom: 2.5rem;
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $button-active;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $secondary-color;
+    }
+  }
+
+  &__item {
+    img {
+      width: 220px; // Increased size for now showing
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    &-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: $color-light;
+    }
+
+    &-genre {
+      font-size: 14px;
+      color: $tertiary-color;
+    }
+  }
+}
+
+.recommended__item img {
+  width: 140px; // Smaller posters for recommended
+}
+
+@media screen and (max-width: 768px) {
+  .top-movies__list,
+  .recommended__list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 0;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

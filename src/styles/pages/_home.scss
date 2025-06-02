@@ -1,0 +1,240 @@
+@use "../utils/variables" as *;
+
+// Header
+.header {
+  padding: 3rem;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  &__greeting {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    color: #ccc;
+  }
+
+  &__welcome-text {
+    font-weight: 400;
+    color: #afafaf;
+    font-size: 1.4rem;
+  }
+
+  &__username {
+    font-weight: 500;
+    color: #fff;
+    font-size: 1.8rem;
+  }
+
+  &__avatar {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+    }
+  }
+
+  &__search {
+    width: 100%;
+    padding: 1.5rem 3.2rem;
+    border-radius: 1.2rem;
+    background-color: #32363d;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    display: flex;
+    gap: 1.4rem;
+    align-items: center;
+    margin-bottom: 3rem;
+
+    &-icon {
+      color: #696d74;
+    }
+
+    &-input {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+
+      &::placeholder {
+        color: #696d74;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+// Coming Soon Section
+.coming-soon {
+  margin-bottom: 3rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 0 3rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  &__list {
+    overflow-x: auto;
+    padding: 0 3rem 2.5rem;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3rem;
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $button-active;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $secondary-color;
+    }
+  }
+
+  &__item {
+    flex: 0 0 auto;
+    width: 500px;
+    text-decoration: none;
+    color: inherit;
+
+    img {
+      width: 100%;
+      max-height: 180px;
+      border-radius: 1.2rem;
+      object-fit: cover;
+    }
+
+    &-title {
+      margin-top: 0.5rem;
+      font-weight: 600;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    &-date {
+      font-size: 1.4rem;
+      color: #afafaf;
+    }
+  }
+}
+
+// Cinemas Section
+.cinemas-near {
+  margin-bottom: 3rem;
+
+  &__wrapper {
+    header {
+      padding: 3rem;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .cinema-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    list-style: none;
+    padding: 0 3rem;
+  }
+
+  .cinema-card {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    width: 100%;
+    color: #fff;
+    border-radius: 0.75rem;
+
+    &__image {
+      width: 76px;
+      height: 76px;
+      object-fit: contain;
+      background-color: #696d74;
+      border-radius: 1.2rem;
+    }
+
+    &__info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__name {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &__address {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    &__rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: #ffa235;
+    }
+
+    span {
+      color: white;
+      font-weight: 300;
+      font-size: 1.4;
+    }
+  }
+}
+
+// Responsive
+@media screen and (max-width: 768px) {
+  .coming-soon__list {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 0;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .coming-soon__item {
+      width: 95%;
+    }
+  }
+}
